@@ -1,0 +1,14 @@
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/api/checkout/route": "/api/checkout",
+  "/api/webhook/route": "/api/webhook",
+  "/dashboard/page": "/dashboard",
+  "/engenharia/page": "/engenharia",
+  "/enterprise/page": "/enterprise",
+  "/favicon.ico/route": "/favicon.ico",
+  "/page": "/",
+  "/pricing/page": "/pricing",
+  "/showcase/page": "/showcase",
+  "/sucesso/page": "/sucesso"
+}
