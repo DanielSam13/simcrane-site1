@@ -1,8 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
-
 const PRICE_IDS: Record<string, string> = {
     mensal: process.env.STRIPE_PRICE_MENSAL!,
     semestral: process.env.STRIPE_PRICE_SEMESTRAL!,
@@ -10,6 +8,7 @@ const PRICE_IDS: Record<string, string> = {
 };
 
 export async function POST(req: NextRequest) {
+    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
     const { plan } = await req.json();
 
     if (!plan || !PRICE_IDS[plan]) {
