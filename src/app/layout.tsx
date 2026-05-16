@@ -13,6 +13,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "SimCrane Pro - Simulação Avançada de Guindastes",
   description: "Simulação avançada de guindastes rodoviários e AT. Precisão técnica para içamentos complexos na palma da sua mão.",
+  metadataBase: new URL('https://www.simcrane.com.br'),
 };
 
 export default function RootLayout({
