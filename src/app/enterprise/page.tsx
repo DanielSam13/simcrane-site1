@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import InteresseButton from '@/components/InteresseModal';
 
 export const metadata = {
@@ -107,11 +108,13 @@ export default function TrainingWorkPage() {
 
                         {/* Right — Image */}
                         <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl border border-border-dark">
-                            {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img
+                            <Image
                                 src="/api/media/Imagem/training.png"
                                 alt="Treinamento com SimCrane Pro"
+                                width={800}
+                                height={500}
                                 className="w-full h-auto object-cover"
+                                unoptimized
                             />
                         </div>
                     </div>
@@ -126,11 +129,13 @@ export default function TrainingWorkPage() {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="relative rounded-2xl overflow-hidden border border-border-dark shadow-xl">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img
+                        <Image
                             src="/api/media/Imagem/Notebook.png"
                             alt="SimCrane Pro no Notebook"
+                            width={800}
+                            height={500}
                             className="w-full h-auto object-cover"
+                            unoptimized
                         />
                         <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
                             <p className="text-white font-bold">Notebook</p>
@@ -138,11 +143,13 @@ export default function TrainingWorkPage() {
                         </div>
                     </div>
                     <div className="relative rounded-2xl overflow-hidden border border-border-dark shadow-xl">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img
+                        <Image
                             src="/api/media/Imagem/tablet.png"
                             alt="SimCrane Pro no Tablet"
+                            width={800}
+                            height={500}
                             className="w-full h-auto object-cover"
+                            unoptimized
                         />
                         <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
                             <p className="text-white font-bold">Tablet</p>
