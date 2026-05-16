@@ -1,9 +1,9 @@
 'use client';
 
 const demos = [
-    { src: '/videos/interface.mp4', label: 'Interface Profissional', icon: 'monitor' },
-    { src: '/videos/Colisao.mp4', label: 'Modo Colisão', icon: 'emergency' },
-    { src: '/videos/tabela.mp4', label: 'Tabela de Cargas', icon: 'table_chart' },
+    { src: '/api/media/videos/interface.mp4', label: 'Interface Profissional', icon: 'monitor' },
+    { src: '/api/media/videos/Colisao.mp4', label: 'Modo Colisão', icon: 'emergency' },
+    { src: '/api/media/videos/tabela.mp4', label: 'Tabela de Cargas', icon: 'table_chart' },
 ];
 
 export default function DemoVideos() {
