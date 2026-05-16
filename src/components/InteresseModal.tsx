@@ -1,16 +1,16 @@
 'use client';
-import { useState } from 'react';
+import { useState, type ChangeEvent, type FormEvent, type ReactNode } from 'react';
 
 function Modal({ onClose }: { onClose: () => void }) {
     const [form, setForm] = useState({ nome: '', email: '', telefone: '', empresa: '' });
     const [enviado, setEnviado] = useState(false);
     const [loading, setLoading] = useState(false);
 
-    function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+    function handleChange(e: ChangeEvent<HTMLInputElement>) {
         setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
     }
 
-    async function handleSubmit(e: React.FormEvent) {
+    async function handleSubmit(e: FormEvent) {
         e.preventDefault();
         if (!form.nome || !form.email || !form.telefone) return;
         setLoading(true);
@@ -162,7 +162,7 @@ function Modal({ onClose }: { onClose: () => void }) {
     );
 }
 
-export default function InteresseButton({ className, children }: { className?: string; children?: React.ReactNode }) {
+export default function InteresseButton({ className, children }: { className?: string; children?: ReactNode }) {
     const [open, setOpen] = useState(false);
     return (
         <>
