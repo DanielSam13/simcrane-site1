@@ -1,232 +1,212 @@
 import Link from 'next/link';
 
 export const metadata = {
-    title: 'Central de Comando | SimCrane Pro',
-    description: 'Visão geral do painel de operações e recursos do SimCrane Pro.',
+    title: 'Login | SimCrane Pro',
+    description: 'Acesse o SimCrane Pro — plataforma de engenharia de rigging.',
 };
 
-const showcaseItems = [
-    {
-        icon: 'monitor',
-        tag: 'Interface',
-        title: 'Painel de Operação',
-        desc: 'Visualização completa da operação em tempo real. Controle de cargas, raios, alturas e alertas de segurança em um único painel.',
-        highlight: 'Tempo Real',
-    },
-    {
-        icon: 'map',
-        tag: 'Planejamento',
-        title: 'Mapa de Canteiro',
-        desc: 'Posicione o guindaste, defina obstáculos e simule a trajetória da carga diretamente sobre o layout do canteiro em 2D e 3D.',
-        highlight: '2D & 3D',
-    },
-    {
-        icon: 'analytics',
-        tag: 'Análise',
-        title: 'Relatórios e Métricas',
-        desc: 'Acompanhe o histórico de simulações, exportações e uso por equipamento. Dados estruturados para gestão e auditoria.',
-        highlight: 'Exportável',
-    },
-    {
-        icon: 'group_work',
-        tag: 'Colaboração',
-        title: 'Projetos em Equipe',
-        desc: 'Compartilhe projetos com sua equipe, defina permissões por usuário e acompanhe revisões com histórico de alterações.',
-        highlight: 'Multi-usuário',
-    },
-    {
-        icon: 'notifications_active',
-        tag: 'Segurança',
-        title: 'Alertas Inteligentes',
-        desc: 'Sistema de alertas automáticos para sobrecarga, interferência com obstáculos, condições de vento e limites operacionais.',
-        highlight: 'Automático',
-    },
-    {
-        icon: 'cloud_sync',
-        tag: 'Sincronização',
-        title: 'Backup em Nuvem',
-        desc: 'Todos os projetos salvos automaticamente na nuvem. Acesse de qualquer dispositivo com sincronização instantânea.',
-        highlight: 'Sempre salvo',
-    },
+const modules = [
+    { label: 'Nova Operação', tag: 'Simular', icon: 'add_circle', desc: 'Crie e configure uma nova operação de içamento com dados técnicos completos.' },
+    { label: 'Física & Cálculos', tag: 'Simular', icon: 'calculate', desc: 'Motor de cálculo automático de cargas, ângulos e esforços em tempo real.' },
+    { label: 'Tabelas & Dados Técnicos', tag: 'Acessar', icon: 'table_chart', desc: 'Biblioteca completa de guindastes com tabelas de carga oficiais dos fabricantes.' },
+    { label: 'Planos de Rigging PDF', tag: 'Exportar', icon: 'picture_as_pdf', desc: 'Gere laudos técnicos com memorial de cálculo e assinatura digital.' },
+    { label: 'Modo Colisão 3D', tag: 'Visualizar', icon: 'view_in_ar', desc: 'Detecção automática de interferências e colisões no canteiro em 3D.' },
+    { label: 'Relatórios & Métricas', tag: 'Analisar', icon: 'analytics', desc: 'Histórico de operações, exportações e dados para gestão e auditoria.' },
 ];
 
-const stats = [
-    { value: '+2.000', label: 'Engenheiros cadastrados' },
-    { value: '+15.000', label: 'Simulações realizadas' },
-    { value: '98%', label: 'Satisfação dos usuários' },
-    { value: '< 2s', label: 'Tempo de simulação' },
+const updates = [
+    { version: 'v1.0 — Lançamento', date: '13 Jul 2026', items: ['Simulação 3D com detecção de colisão', 'Tabelas de carga Liebherr, Tadano, Grove', 'Exportação de Plano de Rigging PDF', 'Cálculo automático de cargas e ângulos'] },
+    { version: 'v1.1 — Previsto', date: 'Set 2026', items: ['Tandem Lifting (2 guindastes)', 'Análise de pressão de solo', 'App mobile iOS & Android', 'Integração com AutoCAD'] },
 ];
 
 export default function ShowcasePage() {
     return (
-        <main className="flex-grow w-full">
+        <main className="flex-grow w-full bg-background-dark">
 
-            {/* Hero */}
-            <section className="relative overflow-hidden pt-12 pb-16 px-4">
-                <div className="absolute inset-0 opacity-10 bg-grid-pattern pointer-events-none"></div>
-                <div className="relative z-10 max-w-7xl mx-auto text-center flex flex-col items-center gap-6">
-                    <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-xs font-bold text-primary ring-1 ring-inset ring-primary/30">
-                        <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-                        Central de Comando
-                    </div>
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-white leading-tight tracking-tight max-w-4xl">
-                        Tudo que você precisa,{' '}
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-yellow-200">
-                            em um só lugar
-                        </span>
-                    </h1>
-                    <p className="text-slate-300 text-lg max-w-2xl leading-relaxed">
-                        Uma plataforma completa para planejamento, simulação e gestão de içamentos. Do escritório ao canteiro de obras.
-                    </p>
+            {/* System header bar */}
+            <div className="w-full border-b border-primary/20 bg-black/40 px-6 py-2 flex items-center justify-between">
+                <div className="font-mono text-xs text-primary/70 flex items-center gap-6">
+                    <span>// SYNC_MODE: ACTIVE</span>
+                    <span className="hidden sm:block">// RENDER_TARGET: SCP-001</span>
                 </div>
-            </section>
+                <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                    <span className="font-mono text-xs text-green-400">SYSTEM.STATUS [OK]</span>
+                </div>
+            </div>
 
-            {/* Stats */}
-            <section className="border-y border-border-dark bg-surface-dark py-10 px-4">
-                <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
-                    {stats.map((s) => (
-                        <div key={s.label} className="text-center">
-                            <p className="text-3xl md:text-4xl font-black text-primary">{s.value}</p>
-                            <p className="text-slate-400 text-sm mt-1">{s.label}</p>
+            {/* Hero — Login Section */}
+            <section className="relative overflow-hidden px-4 pt-16 pb-20">
+                <div className="absolute inset-0 opacity-5 bg-grid-pattern pointer-events-none"></div>
+                <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+                    {/* Left: Heading */}
+                    <div className="space-y-8">
+                        <div className="space-y-1">
+                            <p className="font-mono text-xs text-primary/60 tracking-widest uppercase">// Portal do Operador</p>
+                            <h1 className="text-5xl sm:text-6xl md:text-7xl font-black text-white leading-none tracking-tight uppercase">
+                                ACESSE O<br />
+                                <span className="text-primary">SISTEMA.</span>
+                            </h1>
                         </div>
-                    ))}
+                        <p className="text-slate-400 text-lg leading-relaxed border-l-2 border-primary/40 pl-4 font-mono text-sm">
+                            O SimCrane Pro é uma plataforma de <strong className="text-white">engenharia mecânica</strong> projetada para planejamento de rigging, cálculo de cargas e visualização 3D de alta fidelidade em tempo real.
+                        </p>
+
+                        {/* Launch countdown badge */}
+                        <div className="inline-flex items-center gap-3 bg-primary/10 border border-primary/30 rounded-xl px-5 py-3">
+                            <span className="material-symbols-outlined text-primary text-[22px]">rocket_launch</span>
+                            <div>
+                                <p className="text-white font-bold text-sm">Lançamento: 13 de Julho de 2026</p>
+                                <p className="text-primary text-xs font-mono">Quem fechar no mês ganha 20% de desconto</p>
+                            </div>
+                        </div>
+
+                        <div className="flex flex-wrap gap-3 pt-2">
+                            <Link
+                                href="/pricing"
+                                className="flex items-center gap-2 px-6 py-3 bg-primary text-background-dark font-bold rounded-lg hover:bg-primary-hover transition-colors shadow-[0_0_20px_rgba(241,184,16,0.3)]"
+                            >
+                                <span className="material-symbols-outlined text-[18px]">thumb_up</span>
+                                Tenho Interesse
+                            </Link>
+                            <Link
+                                href="/engenharia"
+                                className="flex items-center gap-2 px-6 py-3 bg-white/5 border border-white/10 text-white font-semibold rounded-lg hover:bg-white/10 transition-colors"
+                            >
+                                <span className="material-symbols-outlined text-[18px]">engineering</span>
+                                Ver Engenharia
+                            </Link>
+                        </div>
+                    </div>
+
+                    {/* Right: Login card */}
+                    <div className="relative">
+                        <div className="absolute inset-0 bg-gradient-to-tr from-primary/15 to-transparent rounded-3xl blur-3xl -z-10"></div>
+                        <div className="bg-surface-dark border border-border-dark rounded-2xl overflow-hidden shadow-2xl">
+                            {/* Card toolbar */}
+                            <div className="flex items-center justify-between px-5 py-3 border-b border-border-dark bg-black/30">
+                                <div className="flex items-center gap-2">
+                                    <div className="w-3 h-3 rounded-full bg-red-500/60"></div>
+                                    <div className="w-3 h-3 rounded-full bg-yellow-500/60"></div>
+                                    <div className="w-3 h-3 rounded-full bg-green-500/60"></div>
+                                </div>
+                                <span className="font-mono text-xs text-slate-500">SimCrane Pro — Acesso</span>
+                                <div className="w-14 h-2.5 bg-slate-700 rounded animate-pulse"></div>
+                            </div>
+
+                            <div className="p-8 space-y-6">
+                                <div className="flex items-center gap-3 mb-2">
+                                    <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center">
+                                        <span className="material-symbols-outlined text-primary">lock_clock</span>
+                                    </div>
+                                    <div>
+                                        <p className="text-white font-bold text-sm">Área do Cliente</p>
+                                        <p className="text-slate-500 text-xs font-mono">Disponível em 13/07/2026</p>
+                                    </div>
+                                </div>
+
+                                <div className="space-y-3">
+                                    <div>
+                                        <label className="block text-xs font-mono text-slate-500 mb-1.5 uppercase tracking-wider">E-mail</label>
+                                        <div className="w-full rounded-lg bg-background-dark border border-border-dark text-slate-500 px-4 py-2.5 text-sm font-mono cursor-not-allowed select-none">
+                                            usuario@empresa.com.br
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label className="block text-xs font-mono text-slate-500 mb-1.5 uppercase tracking-wider">Senha</label>
+                                        <div className="w-full rounded-lg bg-background-dark border border-border-dark text-slate-500 px-4 py-2.5 text-sm font-mono cursor-not-allowed select-none">
+                                            ••••••••••••
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="rounded-xl bg-primary/10 border border-primary/20 p-4 flex items-start gap-3">
+                                    <span className="material-symbols-outlined text-primary text-[20px] mt-0.5">info</span>
+                                    <div>
+                                        <p className="text-white text-sm font-semibold mb-1">Sistema em pré-lançamento</p>
+                                        <p className="text-slate-400 text-xs leading-relaxed">O acesso ao sistema será liberado no lançamento oficial. Cadastre seu interesse para receber credenciais de acesso por e-mail.</p>
+                                    </div>
+                                </div>
+
+                                <Link
+                                    href="/pricing"
+                                    className="flex items-center justify-center gap-2 w-full py-3 bg-primary text-background-dark font-bold rounded-lg hover:bg-primary-hover transition-colors"
+                                >
+                                    <span className="material-symbols-outlined text-[18px]">thumb_up</span>
+                                    Registrar Interesse
+                                </Link>
+
+                                <p className="text-center text-xs text-slate-600 font-mono">
+                                    RENDERIZAÇÃO GPU-ACCELERATED · WWW.SIMCRANE.COM.BR
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
-            {/* Showcase Grid */}
-            <section className="py-16 px-4">
+            {/* Módulos */}
+            <section className="border-t border-border-dark bg-surface-dark py-16 px-4">
+                <div className="absolute inset-0 opacity-5 bg-grid-pattern pointer-events-none"></div>
                 <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-12">
-                        <h2 className="text-3xl font-black text-white mb-3">Recursos da Plataforma</h2>
-                        <p className="text-slate-400 max-w-xl mx-auto">Cada recurso foi projetado para tornar o trabalho do engenheiro de içamento mais rápido, seguro e profissional.</p>
+                    <div className="flex items-center gap-4 mb-10">
+                        <p className="font-mono text-xs text-primary tracking-widest uppercase">// MÓDULOS CARREGADOS</p>
+                        <div className="h-px flex-1 bg-primary/20"></div>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {showcaseItems.map((item) => (
-                            <div key={item.title} className="group relative bg-surface-dark border border-border-dark rounded-2xl p-6 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 transition-all overflow-hidden">
-                                <div className="absolute -right-8 -top-8 w-32 h-32 rounded-full bg-primary/5 group-hover:bg-primary/10 transition-colors"></div>
-                                <div className="relative z-10">
-                                    <div className="flex items-start justify-between mb-4">
-                                        <div className="w-12 h-12 rounded-xl bg-primary/20 text-primary flex items-center justify-center group-hover:bg-primary/30 transition-colors">
-                                            <span className="material-symbols-outlined text-[26px]">{item.icon}</span>
-                                        </div>
-                                        <span className="text-[10px] font-bold text-primary bg-primary/10 px-2 py-1 rounded-full border border-primary/20">{item.highlight}</span>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        {modules.map((mod) => (
+                            <div key={mod.label} className="group bg-background-dark border border-border-dark rounded-xl p-5 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 transition-all">
+                                <div className="flex items-start justify-between mb-3">
+                                    <div className="w-10 h-10 rounded-lg bg-primary/20 text-primary flex items-center justify-center group-hover:bg-primary/30 transition-colors">
+                                        <span className="material-symbols-outlined text-[22px]">{mod.icon}</span>
                                     </div>
-                                    <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-500">{item.tag}</span>
-                                    <h3 className="text-white font-bold text-lg mt-1 mb-2">{item.title}</h3>
-                                    <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
+                                    <span className="font-mono text-[10px] font-bold text-primary bg-primary/10 px-2 py-1 rounded border border-primary/20">{mod.tag}</span>
                                 </div>
+                                <h3 className="text-white font-bold text-sm mb-1 font-mono uppercase tracking-wide">{mod.label}</h3>
+                                <p className="text-slate-500 text-xs leading-relaxed">{mod.desc}</p>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* App Preview */}
-            <section className="py-16 bg-surface-dark border-y border-border-dark relative overflow-hidden">
-                <div className="absolute inset-0 opacity-5 bg-grid-pattern pointer-events-none"></div>
-                <div className="relative z-10 max-w-7xl mx-auto px-4">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                        <div className="space-y-6">
-                            <h2 className="text-3xl font-black text-white leading-tight">
-                                Interface pensada para{' '}
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-yellow-200">engenheiros de campo</span>
-                            </h2>
-                            <p className="text-slate-400 leading-relaxed">
-                                Design limpo e funcional que permite foco total no planejamento. Sem distrações, sem curva de aprendizado longa.
-                            </p>
-                            <ul className="space-y-3">
-                                {[
-                                    'Funciona offline em campo',
-                                    'Compatível com tablet e smartphone',
-                                    'Interface em português',
-                                    'Modo noturno integrado',
-                                ].map((f) => (
-                                    <li key={f} className="flex items-center gap-3 text-slate-300 text-sm">
-                                        <span className="material-symbols-outlined text-primary text-[20px]">check_circle</span>
-                                        {f}
-                                    </li>
-                                ))}
-                            </ul>
-                            <div className="flex gap-4">
-                                <Link
-                                    href="/pricing"
-                                    className="flex items-center gap-2 px-6 py-3 bg-primary text-background-dark font-bold rounded-xl hover:bg-primary-hover transition-colors shadow-[0_0_20px_rgba(241,184,16,0.3)]"
-                                >
-                                    Assinar Agora
-                                </Link>
-                                <Link
-                                    href="/engenharia"
-                                    className="flex items-center gap-2 px-6 py-3 bg-white/5 border border-white/10 text-white font-semibold rounded-xl hover:bg-white/10 transition-colors"
-                                >
-                                    Ver Módulo Técnico
-                                </Link>
-                            </div>
-                        </div>
-
-                        {/* Mock UI */}
-                        <div className="relative">
-                            <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-3xl blur-3xl -z-10"></div>
-                            <div className="bg-background-dark border border-border-dark rounded-2xl overflow-hidden shadow-2xl">
-                                {/* Toolbar simulada */}
-                                <div className="flex items-center justify-between px-4 py-3 border-b border-border-dark bg-surface-dark">
-                                    <div className="flex items-center gap-2">
-                                        <div className="w-3 h-3 rounded-full bg-red-500/70"></div>
-                                        <div className="w-3 h-3 rounded-full bg-yellow-500/70"></div>
-                                        <div className="w-3 h-3 rounded-full bg-green-500/70"></div>
-                                    </div>
-                                    <span className="text-xs text-slate-500 font-mono">SimCrane Pro v1.0</span>
-                                    <div className="w-16 h-3 bg-slate-700 rounded animate-pulse"></div>
+            {/* Updates / Roadmap */}
+            <section className="py-16 px-4">
+                <div className="max-w-7xl mx-auto">
+                    <div className="flex items-center gap-4 mb-10">
+                        <p className="font-mono text-xs text-primary tracking-widest uppercase">// LANÇAMENTOS & ATUALIZAÇÕES</p>
+                        <div className="h-px flex-1 bg-primary/20"></div>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        {updates.map((u) => (
+                            <div key={u.version} className="bg-surface-dark border border-border-dark rounded-2xl p-6">
+                                <div className="flex items-center justify-between mb-5 pb-4 border-b border-border-dark">
+                                    <p className="font-mono text-sm font-bold text-white">{u.version}</p>
+                                    <span className="font-mono text-xs text-primary bg-primary/10 px-3 py-1 rounded-full border border-primary/20">{u.date}</span>
                                 </div>
-                                {/* Conteúdo simulado */}
-                                <div className="p-5 space-y-4">
-                                    <div className="flex gap-3">
-                                        <div className="h-24 flex-1 bg-slate-800/60 rounded-xl"></div>
-                                        <div className="h-24 flex-1 bg-primary/10 rounded-xl border border-primary/20"></div>
-                                    </div>
-                                    <div className="h-4 bg-slate-800 rounded w-3/4"></div>
-                                    <div className="h-4 bg-slate-800 rounded w-1/2"></div>
-                                    <div className="grid grid-cols-3 gap-2 pt-2">
-                                        {[60, 85, 45].map((h, i) => (
-                                            <div key={i} className="space-y-1">
-                                                <div className="bg-slate-700 rounded-t h-1" style={{ height: `${h * 0.5}px` }}></div>
-                                                <div className="h-1 bg-primary/40 rounded"></div>
-                                            </div>
-                                        ))}
-                                    </div>
-                                    <div className="flex gap-2 pt-1">
-                                        <div className="h-8 flex-1 bg-primary rounded-lg"></div>
-                                        <div className="h-8 w-16 bg-slate-700 rounded-lg"></div>
-                                    </div>
-                                </div>
+                                <ul className="space-y-2.5">
+                                    {u.items.map((item) => (
+                                        <li key={item} className="flex items-center gap-3 text-slate-300 text-sm">
+                                            <span className="material-symbols-outlined text-primary text-[16px]">check_circle</span>
+                                            {item}
+                                        </li>
+                                    ))}
+                                </ul>
                             </div>
-                        </div>
+                        ))}
                     </div>
                 </div>
             </section>
 
-            {/* CTA Final */}
-            <section className="px-4 py-16">
-                <div className="max-w-3xl mx-auto text-center">
-                    <h2 className="text-3xl font-black text-white mb-4">Pronto para começar?</h2>
-                    <p className="text-slate-400 mb-8">Junte-se a mais de 2.000 engenheiros que já usam o SimCrane Pro para içamentos mais seguros e eficientes.</p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link
-                            href="/pricing"
-                            className="flex items-center justify-center gap-2 px-8 py-4 bg-primary text-background-dark font-bold rounded-xl hover:bg-primary-hover transition-colors shadow-[0_0_20px_rgba(241,184,16,0.3)] hover:shadow-[0_0_40px_rgba(241,184,16,0.5)] hover:-translate-y-1"
-                        >
-                            <span>Ver Planos e Preços</span>
-                            <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
-                        </Link>
-                        <Link
-                            href="/enterprise"
-                            className="flex items-center justify-center gap-2 px-8 py-4 bg-white/5 border border-white/10 text-white font-semibold rounded-xl hover:bg-white/10 transition-colors"
-                        >
-                            <span className="material-symbols-outlined text-[20px]">business</span>
-                            Soluções Enterprise
-                        </Link>
-                    </div>
-                </div>
-            </section>
+            {/* Footer bar */}
+            <div className="border-t border-border-dark bg-black/40 px-6 py-3 flex items-center justify-between">
+                <span className="font-mono text-xs text-slate-600">RENDERIZAÇÃO GPU-ACCELERATED</span>
+                <span className="font-mono text-xs text-primary">WWW.SIMCRANE.COM.BR</span>
+                <span className="font-mono text-xs text-green-400">SYSTEM.STATUS [OK]</span>
+            </div>
 
         </main>
     );

@@ -153,8 +153,8 @@ export default function Header() {
                         ))}
                     </nav>
                     <div className="flex items-center gap-4">
-                        <Link className="hidden sm:block text-sm font-semibold text-slate-300 hover:text-primary transition-colors" href="/dashboard">
-                            Dashboard
+                        <Link className="hidden sm:block text-sm font-semibold text-slate-300 hover:text-primary transition-colors" href="/showcase">
+                            Login
                         </Link>
                         <button
                             onClick={() => setMobileOpen(prev => !prev)}
@@ -185,11 +185,11 @@ export default function Header() {
                             </Link>
                         ))}
                         <Link
-                            href="/dashboard"
+                            href="/showcase"
                             onClick={() => setMobileOpen(false)}
                             className="text-sm font-medium text-slate-300 hover:text-primary transition-colors py-2.5 border-b border-border-dark/50"
                         >
-                            Dashboard
+                            Login
                         </Link>
                         <button
                             onClick={() => { setMobileOpen(false); setModalOpen(true); }}
