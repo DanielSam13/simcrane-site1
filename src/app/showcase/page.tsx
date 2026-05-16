@@ -7,7 +7,7 @@ export const metadata = {
 
 const modules = [
     { label: 'Nova Operação', tag: 'Simular', icon: 'add_circle', desc: 'Crie e configure uma nova operação de içamento com dados técnicos completos.' },
-    { label: 'Física & Cálculos', tag: 'Simular', icon: 'calculate', desc: 'Motor de cálculo automático de cargas, ângulos e esforços em tempo real.' },
+    { label: 'Configuração da Carga', tag: 'Calcular', icon: 'link', desc: 'Calcula tensão real nas slingas com CG deslocado, angulação nos eixos X e Z, catálogo de cabos e manilhas, fator de segurança instantâneo.' },
     { label: 'Tabelas & Dados Técnicos', tag: 'Acessar', icon: 'table_chart', desc: 'Biblioteca completa de guindastes com tabelas de carga oficiais dos fabricantes.' },
     { label: 'Planos de Rigging PDF', tag: 'Exportar', icon: 'picture_as_pdf', desc: 'Gere laudos técnicos com memorial de cálculo e assinatura digital.' },
     { label: 'Modo Colisão 3D', tag: 'Visualizar', icon: 'view_in_ar', desc: 'Detecção automática de interferências e colisões no canteiro em 3D.' },

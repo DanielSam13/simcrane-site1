@@ -98,9 +98,9 @@ export default function Home() {
               <span className="material-symbols-outlined text-[28px]">link</span>
             </div>
             <div className="relative z-10 space-y-2">
-              <h4 className="text-lg font-bold text-white">Dimensionamento de Lingada</h4>
+              <h4 className="text-lg font-bold text-white">Configuração da Carga</h4>
               <p className="text-sm text-slate-400 leading-relaxed">
-                Calcule automaticamente o comprimento, ângulo e capacidade dos cabos de lingamento conforme a carga e o ponto de fixação, com verificação de coeficiente de segurança.
+                Calcula em tempo real a tensão nas slingas com CG deslocado, controla angulação e inclinação da peça nos eixos X e Z, e exibe taxa de utilização e fator de segurança instantaneamente.
               </p>
             </div>
           </div>
@@ -117,7 +117,7 @@ export default function Home() {
             <div className="absolute bottom-0 left-0 right-0 p-5 flex items-end gap-3">
               <div className="flex-1">
                 <p className="text-[10px] font-bold text-primary uppercase tracking-widest mb-1">Demonstração</p>
-                <h4 className="text-white font-bold text-base">Dimensionamento de Lingada</h4>
+                <h4 className="text-white font-bold text-base">Configuração da Carga</h4>
               </div>
               <div className="w-10 h-10 rounded-full bg-primary/90 flex items-center justify-center shrink-0 shadow-[0_0_20px_rgba(241,184,16,0.4)]">
                 <span className="material-symbols-outlined text-background-dark text-[20px]">play_arrow</span>
