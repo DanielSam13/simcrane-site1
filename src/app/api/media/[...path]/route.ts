@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import path from 'path';
 import fs from 'fs';
+import os from 'os';
 
 const MIME: Record<string, string> = {
     '.mp4': 'video/mp4',
@@ -23,12 +24,31 @@ function toWebStream(nodeStream: fs.ReadStream): ReadableStream {
     });
 }
 
+function resolveMediaDir(): string {
+    if (process.env.MEDIA_DIR && fs.existsSync(process.env.MEDIA_DIR)) {
+        return process.env.MEDIA_DIR;
+    }
+    // Tenta caminhos comuns do Hostinger automaticamente
+    const candidates = [
+        process.env.MEDIA_DIR,
+        path.join(os.homedir(), 'simcrane-media'),
+        '/home/u852377280/simcrane-media',
+        path.join(process.cwd(), '..', 'simcrane-media'),
+        path.join(process.cwd(), '..', '..', 'simcrane-media'),
+    ].filter(Boolean) as string[];
+
+    for (const candidate of candidates) {
+        if (fs.existsSync(candidate)) return candidate;
+    }
+    return path.join(process.cwd(), 'public');
+}
+
 export async function GET(
     req: NextRequest,
     { params }: { params: Promise<{ path: string[] }> }
 ) {
     const { path: segments } = await params;
-    const MEDIA_DIR = process.env.MEDIA_DIR || path.join(process.cwd(), 'public');
+    const MEDIA_DIR = resolveMediaDir();
     const relative = segments.map(decodeURIComponent).join('/');
     const filePath = path.resolve(MEDIA_DIR, relative);
 
@@ -36,7 +56,10 @@ export async function GET(
         return new NextResponse('Forbidden', { status: 403 });
     }
     if (!fs.existsSync(filePath)) {
-        return new NextResponse('Not found', { status: 404 });
+        return NextResponse.json(
+            { error: 'Not found', tried: MEDIA_DIR, file: filePath, cwd: process.cwd(), home: os.homedir() },
+            { status: 404 }
+        );
     }
 
     const stat = fs.statSync(filePath);
