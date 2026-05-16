@@ -7,7 +7,7 @@ import AcessoButton from '@/components/AcessoModal';
 const navLinks = [
     { href: '/', label: 'Funcionalidades' },
     { href: '/engenharia', label: 'Engenharia' },
-    { href: '/enterprise', label: 'Enterprise' },
+    { href: '/enterprise', label: 'Training Work' },
     { href: '/pricing', label: 'Preços' },
 ];
 
