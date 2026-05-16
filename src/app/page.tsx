@@ -104,14 +104,23 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <div className="group relative overflow-hidden rounded-xl border border-dashed border-border-dark bg-surface-dark/50 p-6 transition-all hover:border-primary/30 h-full flex flex-col items-center justify-center min-h-[180px]">
-            <div className="flex flex-col items-center gap-3 text-center">
-              <div className="inline-flex h-14 w-14 items-center justify-center rounded-xl bg-white/5 text-slate-500 group-hover:text-primary/60 transition-colors">
-                <span className="material-symbols-outlined text-[32px]">smart_display</span>
+          <div className="group relative overflow-hidden rounded-xl border border-border-dark bg-surface-dark transition-all hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 h-full min-h-[220px]">
+            <video
+              src="/api/media/videos/Tela Lingada.mp4"
+              className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity"
+              muted
+              loop
+              playsInline
+              autoPlay
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none"></div>
+            <div className="absolute bottom-0 left-0 right-0 p-5 flex items-end gap-3">
+              <div className="flex-1">
+                <p className="text-[10px] font-bold text-primary uppercase tracking-widest mb-1">Demonstração</p>
+                <h4 className="text-white font-bold text-base">Dimensionamento de Lingada</h4>
               </div>
-              <div>
-                <p className="text-slate-500 text-sm font-semibold group-hover:text-slate-400 transition-colors">Vídeo demonstrativo</p>
-                <p className="text-slate-600 text-xs mt-0.5">Em breve</p>
+              <div className="w-10 h-10 rounded-full bg-primary/90 flex items-center justify-center shrink-0 shadow-[0_0_20px_rgba(241,184,16,0.4)]">
+                <span className="material-symbols-outlined text-background-dark text-[20px]">play_arrow</span>
               </div>
             </div>
           </div>
