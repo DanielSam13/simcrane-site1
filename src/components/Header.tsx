@@ -1,13 +1,13 @@
 'use client';
 import Link from "next/link";
 import { useState } from "react";
+import InteresseButton from '@/components/InteresseModal';
 
 const navLinks = [
     { href: '/', label: 'Funcionalidades' },
     { href: '/engenharia', label: 'Engenharia' },
     { href: '/enterprise', label: 'Enterprise' },
     { href: '/pricing', label: 'Preços' },
-    { href: '/showcase', label: 'Showcase' },
 ];
 
 function AcessoModal({ onClose }: { onClose: () => void }) {
@@ -136,7 +136,6 @@ function AcessoModal({ onClose }: { onClose: () => void }) {
 
 export default function Header() {
     const [mobileOpen, setMobileOpen] = useState(false);
-    const [modalOpen, setModalOpen] = useState(false);
 
     return (
         <>
@@ -163,12 +162,9 @@ export default function Header() {
                         >
                             <span className="material-symbols-outlined text-2xl">{mobileOpen ? 'close' : 'menu'}</span>
                         </button>
-                        <button
-                            onClick={() => setModalOpen(true)}
-                            className="hidden md:flex items-center justify-center px-4 py-2 text-sm font-bold rounded-lg bg-primary text-background-dark hover:bg-primary-hover transition-colors"
-                        >
-                            Acesso SimCrane Pro
-                        </button>
+                        <InteresseButton className="hidden md:flex items-center justify-center px-4 py-2 text-sm font-bold rounded-lg bg-primary text-background-dark hover:bg-primary-hover transition-colors">
+                            Tenho Interesse
+                        </InteresseButton>
                     </div>
                 </div>
                 {/* Menu mobile */}
@@ -191,17 +187,13 @@ export default function Header() {
                         >
                             Login
                         </Link>
-                        <button
-                            onClick={() => { setMobileOpen(false); setModalOpen(true); }}
-                            className="mt-3 flex items-center justify-center px-4 py-3 text-sm font-bold rounded-lg bg-primary text-background-dark hover:bg-primary-hover transition-colors"
-                        >
-                            Acesso SimCrane Pro
-                        </button>
+                        <InteresseButton className="mt-3 flex items-center justify-center px-4 py-3 text-sm font-bold rounded-lg bg-primary text-background-dark hover:bg-primary-hover transition-colors">
+                            Tenho Interesse
+                        </InteresseButton>
                     </div>
                 )}
             </header>
 
-            {modalOpen && <AcessoModal onClose={() => setModalOpen(false)} />}
         </>
     );
 }

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import InteresseButton from '@/components/InteresseModal';
 
 export default function EnterprisePage() {
     return (
@@ -19,10 +20,10 @@ export default function EnterprisePage() {
                                 Simulação avançada de guindastes na palma da sua mão. Precisão técnica e facilidade de uso em um só lugar.
                             </p>
                             <div className="pt-4 w-full flex justify-center">
-                                <button className="group relative flex w-full sm:w-auto min-w-[200px] items-center justify-center gap-2 overflow-hidden rounded-md bg-primary px-8 py-4 text-background-dark text-base font-bold shadow-[0_0_20px_rgba(241,184,14,0.3)] transition-all hover:bg-primary-hover hover:shadow-[0_0_30px_rgba(241,184,14,0.5)] hover:-translate-y-0.5 active:translate-y-0">
+                                <InteresseButton className="group relative flex w-full sm:w-auto min-w-[200px] items-center justify-center gap-2 overflow-hidden rounded-md bg-primary px-8 py-4 text-background-dark text-base font-bold shadow-[0_0_20px_rgba(241,184,14,0.3)] transition-all hover:bg-primary-hover hover:shadow-[0_0_30px_rgba(241,184,14,0.5)] hover:-translate-y-0.5 active:translate-y-0">
                                     <span className="relative z-10">TENHO INTERESSE</span>
                                     <span className="material-symbols-outlined relative z-10 text-[20px] transition-transform group-hover:translate-x-1">arrow_forward</span>
-                                </button>
+                                </InteresseButton>
                             </div>
                             <p className="text-xs text-slate-500 mt-2 font-medium">Quem fechar no mês do lançamento ganha 20% de desconto</p>
                         </div>

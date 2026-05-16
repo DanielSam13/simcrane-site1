@@ -1,5 +1,6 @@
 import CountdownTimer from '@/components/CountdownTimer';
 import VideoPickerModal from '@/components/VideoPickerModal';
+import InteresseButton from '@/components/InteresseModal';
 
 export default function Home() {
   return (
@@ -33,12 +34,12 @@ export default function Home() {
                 Simulação avançada de guindastes rodoviários e AT na palma da sua mão. Precisão técnica para içamentos complexos.
               </p>
               <div className="pt-6 w-full flex justify-center">
-                <button className="group relative flex w-full sm:w-auto min-w-[240px] items-center justify-center gap-2 overflow-hidden rounded-xl bg-primary px-8 py-5 text-background-dark text-lg font-bold shadow-[0_0_20px_rgba(241,184,16,0.3)] transition-all hover:bg-primary-hover hover:shadow-[0_0_40px_rgba(241,184,16,0.5)] hover:-translate-y-1 active:translate-y-0">
+                <InteresseButton className="group relative flex w-full sm:w-auto min-w-[240px] items-center justify-center gap-2 overflow-hidden rounded-xl bg-primary px-8 py-5 text-background-dark text-lg font-bold shadow-[0_0_20px_rgba(241,184,16,0.3)] transition-all hover:bg-primary-hover hover:shadow-[0_0_40px_rgba(241,184,16,0.5)] hover:-translate-y-1 active:translate-y-0">
                   <span className="relative z-10">TENHO INTERESSE</span>
                   <span className="material-symbols-outlined relative z-10 text-[24px] transition-transform group-hover:translate-x-1">
                     arrow_forward
                   </span>
-                </button>
+                </InteresseButton>
               </div>
               <p className="text-xs text-slate-400 mt-2 font-medium flex items-center gap-1">
                 <span className="material-symbols-outlined text-sm text-primary">local_offer</span>
@@ -175,10 +176,10 @@ export default function Home() {
               <h3 className="text-2xl font-bold text-white mb-2">Pronto para elevar seu nível?</h3>
               <p className="text-slate-400">Quem fechar no mês do lançamento garante <span className="text-primary font-semibold">20% de desconto</span>.</p>
             </div>
-            <button className="w-full md:w-auto whitespace-nowrap rounded-lg bg-primary hover:bg-primary-hover text-background-dark border border-primary px-6 py-3 font-bold transition-colors flex items-center justify-center gap-2">
+            <InteresseButton className="w-full md:w-auto whitespace-nowrap rounded-lg bg-primary hover:bg-primary-hover text-background-dark border border-primary px-6 py-3 font-bold transition-colors flex items-center justify-center gap-2">
               <span className="material-symbols-outlined text-[20px]">thumb_up</span>
               Tenho Interesse
-            </button>
+            </InteresseButton>
           </div>
         </div>
       </section>
