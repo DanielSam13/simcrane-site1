@@ -19,14 +19,20 @@ function AcessoModal({ onClose }: { onClose: () => void }) {
         setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
     }
 
-    function handleSubmit(e: React.FormEvent) {
+    async function handleSubmit(e: React.FormEvent) {
         e.preventDefault();
         if (!form.nome || !form.empresa || !form.email) return;
         setLoading(true);
-        setTimeout(() => {
+        try {
+            await fetch('/api/acesso', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(form),
+            });
+        } finally {
             setLoading(false);
             setEnviado(true);
-        }, 800);
+        }
     }
 
     return (
