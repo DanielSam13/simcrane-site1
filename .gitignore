@@ -34,9 +34,6 @@ yarn-error.log*
 .env*
 !.env.example
 
-# videos — envie direto para o servidor via FTP/SSH
-/public/videos/
-
 # vercel
 .vercel
 
