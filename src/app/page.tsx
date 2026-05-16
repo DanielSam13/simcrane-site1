@@ -76,7 +76,7 @@ export default function Home() {
             </div>
           </div>
           <a
-            href="/api/media/Plano_de_Rigging_Modelo.pdf"
+            href="/api/media/Plano/Plano_de_Rigging_Modelo.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="group relative overflow-hidden rounded-xl border border-border-dark bg-surface-dark p-6 transition-all hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 h-full block cursor-pointer"
