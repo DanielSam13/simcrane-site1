@@ -92,6 +92,29 @@ export default function Home() {
               </p>
             </div>
           </a>
+          <div className="group relative overflow-hidden rounded-xl border border-border-dark bg-surface-dark p-6 transition-all hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 h-full">
+            <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-primary/10 transition-transform group-hover:scale-150"></div>
+            <div className="relative z-10 mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary/20 text-primary">
+              <span className="material-symbols-outlined text-[28px]">link</span>
+            </div>
+            <div className="relative z-10 space-y-2">
+              <h4 className="text-lg font-bold text-white">Dimensionamento de Lingada</h4>
+              <p className="text-sm text-slate-400 leading-relaxed">
+                Calcule automaticamente o comprimento, ângulo e capacidade dos cabos de lingamento conforme a carga e o ponto de fixação, com verificação de coeficiente de segurança.
+              </p>
+            </div>
+          </div>
+          <div className="group relative overflow-hidden rounded-xl border border-dashed border-border-dark bg-surface-dark/50 p-6 transition-all hover:border-primary/30 h-full flex flex-col items-center justify-center min-h-[180px]">
+            <div className="flex flex-col items-center gap-3 text-center">
+              <div className="inline-flex h-14 w-14 items-center justify-center rounded-xl bg-white/5 text-slate-500 group-hover:text-primary/60 transition-colors">
+                <span className="material-symbols-outlined text-[32px]">smart_display</span>
+              </div>
+              <div>
+                <p className="text-slate-500 text-sm font-semibold group-hover:text-slate-400 transition-colors">Vídeo demonstrativo</p>
+                <p className="text-slate-600 text-xs mt-0.5">Em breve</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
