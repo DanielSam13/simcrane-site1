@@ -1,5 +1,6 @@
 'use client';
 import { useState, type ChangeEvent, type FormEvent, type ReactNode } from 'react';
+import { createPortal } from 'react-dom';
 
 function Modal({ onClose }: { onClose: () => void }) {
     const [form, setForm] = useState({ nome: '', empresa: '', email: '' });
@@ -26,9 +27,9 @@ function Modal({ onClose }: { onClose: () => void }) {
         }
     }
 
-    return (
+    return createPortal(
         <div
-            className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+            className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
             onClick={onClose}
         >
             <div
@@ -129,7 +130,8 @@ function Modal({ onClose }: { onClose: () => void }) {
                     </div>
                 )}
             </div>
-        </div>
+        </div>,
+        document.body
     );
 }
 
