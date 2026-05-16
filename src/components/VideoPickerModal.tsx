@@ -7,8 +7,8 @@ export default function VideoPickerModal() {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const videoSrc = {
-        colisao: '/api/media/videos/Colisao.mp4',
-        simulacao: '/api/media/videos/simulacao.mp4',
+        colisao: '/videos/Colisao.mp4',
+        simulacao: '/videos/simulacao.mp4',
     };
 
     const label = activeVideo === 'colisao' ? 'Visualizar Modo Colisão' : 'Visualizar Simulação Realista';
