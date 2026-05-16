@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import InteresseButton from '@/components/InteresseModal';
+import AcessoButton from '@/components/AcessoModal';
 
 const navLinks = [
     { href: '/', label: 'Funcionalidades' },
@@ -31,6 +32,10 @@ export default function Header() {
                         <Link className="hidden sm:block text-sm font-semibold text-slate-300 hover:text-primary transition-colors" href="/showcase">
                             Login
                         </Link>
+                        <AcessoButton className="hidden md:flex items-center justify-center gap-1.5 px-4 py-2 text-sm font-bold rounded-lg border border-blue-500/60 text-blue-400 hover:bg-blue-500/10 transition-colors">
+                            <span className="material-symbols-outlined text-[16px]">person_add</span>
+                            Acessar SimCrane Pro
+                        </AcessoButton>
                         <button
                             onClick={() => setMobileOpen(prev => !prev)}
                             className="flex items-center justify-center w-10 h-10 md:hidden rounded-full hover:bg-white/10 transition-colors text-white"
@@ -63,7 +68,11 @@ export default function Header() {
                         >
                             Login
                         </Link>
-                        <InteresseButton className="mt-3 flex items-center justify-center px-4 py-3 text-sm font-bold rounded-lg bg-primary text-background-dark hover:bg-primary-hover transition-colors">
+                        <AcessoButton className="mt-3 flex items-center justify-center gap-2 px-4 py-3 text-sm font-bold rounded-lg border border-blue-500/60 text-blue-400 hover:bg-blue-500/10 transition-colors">
+                            <span className="material-symbols-outlined text-[18px]">person_add</span>
+                            Acessar SimCrane Pro
+                        </AcessoButton>
+                        <InteresseButton className="mt-2 flex items-center justify-center px-4 py-3 text-sm font-bold rounded-lg bg-primary text-background-dark hover:bg-primary-hover transition-colors">
                             Tenho Interesse
                         </InteresseButton>
                     </div>
