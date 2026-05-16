@@ -15,7 +15,7 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({ error: 'Plano inválido' }, { status: 400 });
     }
 
-    const baseUrl = process.env.NEXT_PUBLIC_URL ?? 'http://localhost:3000';
+    const baseUrl = process.env.NEXT_PUBLIC_URL ?? 'https://www.simcrane.com.br';
 
     const session = await stripe.checkout.sessions.create({
         mode: 'payment',

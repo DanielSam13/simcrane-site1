@@ -72,7 +72,7 @@ export default function Home() {
             </div>
           </div>
           <a
-            href="/Plano de Rigging PDF/Plano_de_Rigging_Modelo.pdf"
+            href="/Plano de Rigging/Plano_de_Rigging_Modelo.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="group relative overflow-hidden rounded-xl border border-border-dark bg-surface-dark p-6 transition-all hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 h-full block cursor-pointer"
@@ -83,7 +83,7 @@ export default function Home() {
             </div>
             <div className="relative z-10 space-y-2">
               <h4 className="text-lg font-bold text-white flex items-center gap-2">
-                Relatórios PDF
+                Planos de Rigging PDF
                 <span className="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100 transition-opacity">open_in_new</span>
               </h4>
               <p className="text-sm text-slate-400 leading-relaxed">

@@ -68,7 +68,7 @@ export default function EngenhariaPage() {
                             <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
                         </Link>
                         <a
-                            href="/Plano de Rigging PDF/Plano_de_Rigging_Modelo.pdf"
+                            href="/Plano de Rigging/Plano_de_Rigging_Modelo.pdf"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center justify-center gap-2 px-8 py-4 bg-white/5 border border-white/10 text-white font-semibold rounded-xl hover:bg-white/10 transition-colors"
@@ -141,7 +141,7 @@ export default function EngenhariaPage() {
                                 <p className="text-slate-500 text-xs">Versão 2024 • Com memorial de cálculo</p>
                             </div>
                             <a
-                                href="/Plano de Rigging PDF/Plano_de_Rigging_Modelo.pdf"
+                                href="/Plano de Rigging/Plano_de_Rigging_Modelo.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="ml-auto flex items-center gap-1 text-primary text-sm font-semibold hover:underline"
