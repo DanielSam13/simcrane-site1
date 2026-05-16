@@ -3,7 +3,7 @@
 import { useState } from 'react';
 
 export default function VideoPickerModal() {
-    const [activeVideo, setActiveVideo] = useState<'colisao' | 'simulacao'>('colisao');
+    const [activeVideo, setActiveVideo] = useState<'colisao' | 'simulacao'>('simulacao');
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const videoSrc = {
