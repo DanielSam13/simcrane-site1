@@ -1,5 +1,6 @@
 import CountdownTimer from '@/components/CountdownTimer';
 import VideoPickerModal from '@/components/VideoPickerModal';
+import ConfiguracaoCargaVideo from '@/components/ConfiguracaoCargaVideo';
 import InteresseButton from '@/components/InteresseModal';
 
 export default function Home() {
@@ -59,7 +60,9 @@ export default function Home() {
 
         <VideoPickerModal />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <ConfiguracaoCargaVideo />
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="group relative overflow-hidden rounded-xl border border-border-dark bg-surface-dark p-6 transition-all hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 h-full">
             <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-primary/10 transition-transform group-hover:scale-150"></div>
             <div className="relative z-10 mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary/20 text-primary">
@@ -95,33 +98,13 @@ export default function Home() {
           <div className="group relative overflow-hidden rounded-xl border border-border-dark bg-surface-dark p-6 transition-all hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 h-full">
             <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-primary/10 transition-transform group-hover:scale-150"></div>
             <div className="relative z-10 mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary/20 text-primary">
-              <span className="material-symbols-outlined text-[28px]">link</span>
+              <span className="material-symbols-outlined text-[28px]">view_in_ar</span>
             </div>
             <div className="relative z-10 space-y-2">
-              <h4 className="text-lg font-bold text-white">Configuração da Carga</h4>
+              <h4 className="text-lg font-bold text-white">Modo Colisão 3D</h4>
               <p className="text-sm text-slate-400 leading-relaxed">
-                Calcula em tempo real a tensão nas slingas com CG deslocado, controla angulação e inclinação da peça nos eixos X e Z, e exibe taxa de utilização e fator de segurança instantaneamente.
+                Detecção automática de interferências e colisões no canteiro em 3D. Visualize conflitos antes que aconteçam em campo.
               </p>
-            </div>
-          </div>
-          <div className="group relative overflow-hidden rounded-xl border border-border-dark bg-surface-dark transition-all hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 h-full min-h-[220px]">
-            <video
-              src="/api/media/videos/Tela Lingada.mp4"
-              className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity"
-              muted
-              loop
-              playsInline
-              autoPlay
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none"></div>
-            <div className="absolute bottom-0 left-0 right-0 p-5 flex items-end gap-3">
-              <div className="flex-1">
-                <p className="text-[10px] font-bold text-primary uppercase tracking-widest mb-1">Demonstração</p>
-                <h4 className="text-white font-bold text-base">Configuração da Carga</h4>
-              </div>
-              <div className="w-10 h-10 rounded-full bg-primary/90 flex items-center justify-center shrink-0 shadow-[0_0_20px_rgba(241,184,16,0.4)]">
-                <span className="material-symbols-outlined text-background-dark text-[20px]">play_arrow</span>
-              </div>
             </div>
           </div>
         </div>
