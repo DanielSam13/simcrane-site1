@@ -128,12 +128,12 @@ export default function TrainingWorkPage() {
                     <div className="relative rounded-2xl overflow-hidden border border-border-dark shadow-xl">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
-                            src="/api/media/Imagem/desktop.png"
-                            alt="SimCrane Pro no Desktop"
+                            src="/api/media/Imagem/Notebook.png"
+                            alt="SimCrane Pro no Notebook"
                             className="w-full h-auto object-cover"
                         />
                         <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
-                            <p className="text-white font-bold">Desktop</p>
+                            <p className="text-white font-bold">Notebook</p>
                             <p className="text-slate-300 text-xs">Experiência completa para engenharia de rigging</p>
                         </div>
                     </div>
