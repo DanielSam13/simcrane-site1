@@ -1,18 +1,60 @@
 'use client';
 
 import { useState } from 'react';
-import CheckoutModal from '@/components/CheckoutModal';
 
-type PlanType = 'mensal' | 'semestral' | 'anual';
+function LaunchModal({ onClose }: { onClose: () => void }) {
+    return (
+        <div
+            className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+            onClick={onClose}
+        >
+            <div
+                className="relative w-full max-w-sm rounded-2xl border border-primary/40 bg-surface-dark shadow-[0_0_60px_-10px_rgba(241,184,14,0.3)] p-8 text-center"
+                onClick={e => e.stopPropagation()}
+            >
+                <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-primary/15 text-primary mb-5 mx-auto">
+                    <span className="material-symbols-outlined text-4xl">lock_clock</span>
+                </div>
+                <h2 className="text-xl font-bold text-white mb-2">Preço em breve</h2>
+                <p className="text-slate-400 text-sm leading-relaxed mb-5">
+                    Os valores dos planos serão revelados no lançamento oficial do SimCrane Pro.
+                </p>
+                <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 rounded-xl px-5 py-3 mb-6">
+                    <span className="material-symbols-outlined text-primary text-xl">event</span>
+                    <span className="text-primary font-bold text-lg">13 de Julho de 2026</span>
+                </div>
+                <p className="text-slate-500 text-xs mb-6">
+                    Quer garantir acesso antecipado? Use o botão <span className="text-primary font-semibold">Acesso SimCrane Pro</span> no topo da página.
+                </p>
+                <button
+                    onClick={onClose}
+                    className="w-full px-6 py-2.5 rounded-lg bg-primary text-background-dark font-bold text-sm hover:bg-primary-hover transition-colors"
+                >
+                    Entendido
+                </button>
+            </div>
+        </div>
+    );
+}
+
+function PrecoOculto({ onClick }: { onClick: () => void }) {
+    return (
+        <button
+            onClick={onClick}
+            className="mt-4 flex items-baseline gap-1 text-white group cursor-pointer select-none"
+            title="Clique para saber quando o preço será revelado"
+        >
+            <span className="text-3xl font-bold tracking-tight text-slate-500">R$</span>
+            <span className="text-5xl font-extrabold tracking-tight blur-sm group-hover:blur-none transition-all duration-300 text-slate-400">
+                ●●●,●●
+            </span>
+            <span className="material-symbols-outlined text-slate-500 text-xl ml-1 group-hover:text-primary transition-colors">lock</span>
+        </button>
+    );
+}
 
 export default function PricingPlans() {
-    const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
-    const [selectedPlan, setSelectedPlan] = useState<PlanType | null>(null);
-
-    const handleOpenCheckout = (plan: PlanType) => {
-        setSelectedPlan(plan);
-        setIsCheckoutOpen(true);
-    };
+    const [launchOpen, setLaunchOpen] = useState(false);
 
     return (
         <>
@@ -22,15 +64,16 @@ export default function PricingPlans() {
                     <div className="text-center mb-12">
                         <h3 className="text-3xl font-bold text-white mb-4">Escolha seu Plano</h3>
                         <p className="text-slate-400 max-w-xl mx-auto">Planos flexíveis para engenheiros autônomos e grandes empresas. Cancele quando quiser.</p>
+                        <div className="mt-4 inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-1.5">
+                            <span className="material-symbols-outlined text-primary text-base">event</span>
+                            <span className="text-primary text-sm font-semibold">Preços revelados em 13 de Julho de 2026</span>
+                        </div>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 items-start">
                         {/* Mensal */}
                         <div className="rounded-md bg-background-dark border border-border-dark p-8 flex flex-col h-full hover:border-primary/30 transition-colors">
                             <h4 className="text-xl font-semibold text-slate-300">Mensal</h4>
-                            <div className="mt-4 flex items-baseline text-white">
-                                <span className="text-3xl font-bold tracking-tight">R$</span>
-                                <span className="text-5xl font-extrabold tracking-tight">699,00</span>
-                            </div>
+                            <PrecoOculto onClick={() => setLaunchOpen(true)} />
                             <p className="mt-4 text-sm text-slate-400">Ideal para projetos de curto prazo.</p>
                             <ul className="mt-8 space-y-4 flex-1">
                                 {['Acesso total à plataforma web', '5 Simulações ativas', 'Suporte por e-mail'].map((item, i) => (
@@ -41,7 +84,7 @@ export default function PricingPlans() {
                                 ))}
                             </ul>
                             <button
-                                onClick={() => handleOpenCheckout('mensal')}
+                                onClick={() => setLaunchOpen(true)}
                                 className="mt-8 w-full rounded-md bg-white/10 px-4 py-3 text-sm font-semibold text-white hover:bg-white/20 transition-colors border border-white/5"
                             >
                                 Começar Mensal
@@ -54,10 +97,7 @@ export default function PricingPlans() {
                                 MAIS POPULAR
                             </div>
                             <h4 className="text-xl font-semibold text-primary">Anual VIP</h4>
-                            <div className="mt-4 flex items-baseline text-white">
-                                <span className="text-3xl font-bold tracking-tight">R$</span>
-                                <span className="text-5xl font-extrabold tracking-tight">4.999,00</span>
-                            </div>
+                            <PrecoOculto onClick={() => setLaunchOpen(true)} />
                             <p className="mt-1 text-xs text-primary/80 font-medium">Economize 40% anualmente</p>
                             <ul className="mt-8 space-y-4 flex-1">
                                 {['Tudo do plano Semestral', 'Simulações ilimitadas', 'Acesso antecipado a novos guindastes', 'Mentorias mensais exclusivas'].map((item, i) => (
@@ -68,7 +108,7 @@ export default function PricingPlans() {
                                 ))}
                             </ul>
                             <button
-                                onClick={() => handleOpenCheckout('anual')}
+                                onClick={() => setLaunchOpen(true)}
                                 className="mt-8 w-full rounded-md bg-primary px-4 py-3 text-sm font-bold text-background-dark hover:bg-primary-hover shadow-lg shadow-primary/20 transition-all hover:scale-[1.02]"
                             >
                                 Assinar Anual VIP
@@ -78,10 +118,7 @@ export default function PricingPlans() {
                         {/* Semestral */}
                         <div className="rounded-md bg-background-dark border border-border-dark p-8 flex flex-col h-full hover:border-primary/30 transition-colors">
                             <h4 className="text-xl font-semibold text-slate-300">Semestral</h4>
-                            <div className="mt-4 flex items-baseline text-white">
-                                <span className="text-3xl font-bold tracking-tight">R$</span>
-                                <span className="text-5xl font-extrabold tracking-tight">3.499,00</span>
-                            </div>
+                            <PrecoOculto onClick={() => setLaunchOpen(true)} />
                             <p className="mt-4 text-sm text-slate-400">Equilíbrio perfeito para médio prazo.</p>
                             <ul className="mt-8 space-y-4 flex-1">
                                 {['Acesso total à plataforma web', '20 Simulações ativas', 'Suporte Prioritário', "Exportação em PDF sem marca d'água"].map((item, i) => (
@@ -92,7 +129,7 @@ export default function PricingPlans() {
                                 ))}
                             </ul>
                             <button
-                                onClick={() => handleOpenCheckout('semestral')}
+                                onClick={() => setLaunchOpen(true)}
                                 className="mt-8 w-full rounded-md bg-white/10 px-4 py-3 text-sm font-semibold text-white hover:bg-white/20 transition-colors border border-white/5"
                             >
                                 Começar Semestral
@@ -142,11 +179,7 @@ export default function PricingPlans() {
                 </div>
             </section>
 
-            <CheckoutModal
-                isOpen={isCheckoutOpen}
-                onClose={() => setIsCheckoutOpen(false)}
-                plan={selectedPlan}
-            />
+            {launchOpen && <LaunchModal onClose={() => setLaunchOpen(false)} />}
         </>
     );
 }
