@@ -34,15 +34,15 @@ export default function Home() {
               </p>
               <div className="pt-6 w-full flex justify-center">
                 <button className="group relative flex w-full sm:w-auto min-w-[240px] items-center justify-center gap-2 overflow-hidden rounded-xl bg-primary px-8 py-5 text-background-dark text-lg font-bold shadow-[0_0_20px_rgba(241,184,16,0.3)] transition-all hover:bg-primary-hover hover:shadow-[0_0_40px_rgba(241,184,16,0.5)] hover:-translate-y-1 active:translate-y-0">
-                  <span className="relative z-10">QUERO ACESSO ANTECIPADO</span>
+                  <span className="relative z-10">TENHO INTERESSE</span>
                   <span className="material-symbols-outlined relative z-10 text-[24px] transition-transform group-hover:translate-x-1">
                     arrow_forward
                   </span>
                 </button>
               </div>
               <p className="text-xs text-slate-400 mt-2 font-medium flex items-center gap-1">
-                <span className="material-symbols-outlined text-sm text-primary">verified</span>
-                Junte-se a +2.000 engenheiros na lista de espera
+                <span className="material-symbols-outlined text-sm text-primary">local_offer</span>
+                Quem fechar no mês do lançamento ganha 20% de desconto
               </p>
             </div>
           </div>
@@ -240,11 +240,11 @@ export default function Home() {
           <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="text-center md:text-left">
               <h3 className="text-2xl font-bold text-white mb-2">Pronto para elevar seu nível?</h3>
-              <p className="text-slate-400">Garanta sua vaga no lançamento e receba 20% de desconto.</p>
+              <p className="text-slate-400">Quem fechar no mês do lançamento garante <span className="text-primary font-semibold">20% de desconto</span>.</p>
             </div>
-            <button className="w-full md:w-auto whitespace-nowrap rounded-lg bg-white/5 hover:bg-white/10 text-white border border-white/10 px-6 py-3 font-semibold transition-colors flex items-center justify-center gap-2">
-              <span className="material-symbols-outlined text-[20px]">mail</span>
-              Entrar na Lista de Espera
+            <button className="w-full md:w-auto whitespace-nowrap rounded-lg bg-primary hover:bg-primary-hover text-background-dark border border-primary px-6 py-3 font-bold transition-colors flex items-center justify-center gap-2">
+              <span className="material-symbols-outlined text-[20px]">thumb_up</span>
+              Tenho Interesse
             </button>
           </div>
         </div>
