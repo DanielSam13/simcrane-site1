@@ -76,7 +76,7 @@ export default function PricingPlans() {
                             <PrecoOculto onClick={() => setLaunchOpen(true)} />
                             <p className="mt-4 text-sm text-slate-400">Ideal para projetos de curto prazo.</p>
                             <ul className="mt-8 space-y-4 flex-1">
-                                {['Acesso total à plataforma web', '5 Simulações ativas', 'Suporte por e-mail'].map((item, i) => (
+                                {['Acesso ao SimCrane Web'].map((item, i) => (
                                     <li key={i} className="flex gap-3 text-sm text-slate-300">
                                         <span className="material-symbols-outlined text-primary text-xl">check</span>
                                         {item}
@@ -100,7 +100,7 @@ export default function PricingPlans() {
                             <PrecoOculto onClick={() => setLaunchOpen(true)} />
                             <p className="mt-1 text-xs text-primary/80 font-medium">Economize 40% anualmente</p>
                             <ul className="mt-8 space-y-4 flex-1">
-                                {['Tudo do plano Semestral', 'Simulações ilimitadas', 'Acesso antecipado a novos guindastes', 'Mentorias mensais exclusivas'].map((item, i) => (
+                                {['Acesso ao SimCrane Web', 'Acesso à Biblioteca Modelo 3D', 'Acesso ao Módulo Engenharia', 'Suporte por e-mail e WhatsApp'].map((item, i) => (
                                     <li key={i} className="flex gap-3 text-sm text-white font-medium">
                                         <span className="material-symbols-outlined text-primary text-xl">verified</span>
                                         {item}
@@ -121,7 +121,7 @@ export default function PricingPlans() {
                             <PrecoOculto onClick={() => setLaunchOpen(true)} />
                             <p className="mt-4 text-sm text-slate-400">Equilíbrio perfeito para médio prazo.</p>
                             <ul className="mt-8 space-y-4 flex-1">
-                                {['Acesso total à plataforma web', '20 Simulações ativas', 'Suporte Prioritário', "Exportação em PDF sem marca d'água"].map((item, i) => (
+                                {['Acesso ao SimCrane Web', 'Acesso à Biblioteca Modelo 3D'].map((item, i) => (
                                     <li key={i} className="flex gap-3 text-sm text-slate-300">
                                         <span className="material-symbols-outlined text-primary text-xl">check</span>
                                         {item}
