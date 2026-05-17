@@ -118,9 +118,15 @@ function Modal({ onClose }: { onClose: () => void }) {
                             <span className="material-symbols-outlined text-4xl">check_circle</span>
                         </div>
                         <h2 className="text-2xl font-bold text-white mb-3">Solicitação enviada!</h2>
-                        <p className="text-slate-300 text-sm leading-relaxed">
-                            Em até <span className="text-blue-400 font-bold">24 horas</span> você receberá um e-mail com login e senha para acessar o <span className="text-white font-semibold">SimCrane Pro</span> por um período de <span className="text-blue-400 font-bold">15 dias de teste</span>.
+                        <p className="text-slate-300 text-sm leading-relaxed mb-4">
+                            Em até <span className="text-blue-400 font-bold">24 horas</span> você receberá um e-mail com login e senha para acessar o <span className="text-white font-semibold">SimCrane Pro</span>.
                         </p>
+                        <div className="w-full bg-blue-500/10 border border-blue-500/30 rounded-xl px-5 py-4 flex items-start gap-3 text-left mb-1">
+                            <span className="material-symbols-outlined text-blue-400 text-xl mt-0.5 shrink-0">event</span>
+                            <p className="text-slate-300 text-sm leading-relaxed">
+                                A partir de <span className="text-blue-400 font-bold">02/06/2026</span> você terá acesso a uma conta <span className="text-white font-semibold">DEMO</span> por <span className="text-blue-400 font-bold">15 dias</span>.
+                            </p>
+                        </div>
                         <button
                             onClick={onClose}
                             className="mt-6 px-6 py-2.5 rounded-lg bg-blue-600 text-white font-bold text-sm hover:bg-blue-500 transition-colors"
